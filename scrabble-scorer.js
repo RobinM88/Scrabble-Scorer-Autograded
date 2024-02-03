@@ -33,12 +33,40 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
+   console.log("Let's play some scrabble!");
+    let userWord = input.question("Enter a word: ");
+    return oldScrabbleScorer(userWord)
+
 };
+let points = initialPrompt()
+console.log(`${points}`)
 
-let simpleScorer;
+function simpleScorer(word) {
+   word = word.toUpperCase();
+   let score = 0;
+   for (let i = 0; i < word.length; i++) {
+       score += 1;
+   }
+   return score;
+}
 
-let vowelBonusScorer;
+// Example usage:
+let testWord = "PINeapple";
+let score = simpleScorer(testWord);
+console.log(`Simple score for '${testWord}': ${score}`);
+
+function vowelBonusScorer(word){
+   let vowels = ["A","E","I","O","U"]
+   let bonusScore = 0
+   for (let i = 0; i < word.length; i++) {
+      let letter = word[i].toUpperCase();
+      if (vowels.includes(letter)){
+         bonusScore += 3;
+      } else bonusScore += 1;
+   }
+    return bonusScore;
+}console.log(`Bonus for vowels ${vowelBonusScorer("poop")}`)
+
 
 let scrabbleScorer;
 
