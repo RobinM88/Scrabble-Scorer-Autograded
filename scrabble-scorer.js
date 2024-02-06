@@ -34,7 +34,7 @@ function oldScrabbleScorer(word) {
 function initialPrompt() {
   console.log("Let's play some scrabble!");
   const userWord = input.question("Enter a word: ");
-//   return oldScrabbleScorer(userWord)
+  //   return oldScrabbleScorer(userWord)
 
   return userWord;
 }
@@ -49,12 +49,12 @@ function simpleScorer(word) {
 function vowelBonusScorer(word) {
   const vowels = ["A", "E", "I", "O", "U"];
   let bonusScore = 0;
-  console.log('word in bonus scorer', word)
+  // console.log('word in bonus scorer', word)
   for (const letter in word) {
     vowels.includes(word[letter].toUpperCase())
       ? (bonusScore += 3)
       : (bonusScore += 1); // condition ? do if true : do if false;
-  } // [p,p,p,r,e,e]
+  } // [p,i,n,e,a,p,p,l,e}
   return bonusScore;
 }
 
@@ -88,9 +88,9 @@ let scoringAlgorithms = [
 ];
 
 function scorerPrompt(word) {
-   console.log(`You entered: "${word}"`);
-   console.log("Now, choose a scoring algorithm:");
-
+  console.log(`You entered: "${word}"`);
+  console.log("Now, choose a scoring algorithm:");
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#syntax
   scoringAlgorithms.forEach((algorithm, index) => {
     console.log(`${index} - ${algorithm.name}: ${algorithm.description}`);
   });
